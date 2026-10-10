@@ -1,5 +1,7 @@
 import { useCallback, useState } from 'react';
 
+import { Button } from 'antd-mobile';
+
 import { createDesign, useRouter } from '@/hooks';
 import { useLoadingStore } from '@/store';
 
@@ -24,9 +26,9 @@ function Count() {
   return (
     <div className={prefixCls}>
       <span className={`${prefixCls}__count`}>{count}</span>
-      <button type="button" onClick={() => setCount(count + 1)}>
+      <Button color="primary" fill="solid" onClick={() => setCount(count + 1)}>
         count++
-      </button>
+      </Button>
       <br />
       <button type="button" onClick={() => router.push('/test/create')}>
         跳转create页面

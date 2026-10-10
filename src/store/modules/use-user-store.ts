@@ -2,6 +2,8 @@
 import { create } from 'zustand';
 import { immer } from 'zustand/middleware/immer';
 
+import { setToken } from '@/utils/auth';
+
 type UserInfo = {
   username: string;
   avatar: string;
@@ -23,10 +25,12 @@ export const useUserStore = create<State & Action>()(
   immer((set) => ({
     token: '',
     userInfo: { username: 'react', avatar: 'https://picsum.photos/200/300' },
-    updateToken: (token) =>
+    updateToken: (token) => {
+      setToken(token); // 同步写 localStorage，token 以 localStorage 为唯一真源
       set((state) => {
         state.token = token;
-      }),
+      });
+    },
     updateUserName: (username) =>
       set((state) => {
         state.userInfo.username = username;

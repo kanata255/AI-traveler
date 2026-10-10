@@ -43,6 +43,7 @@
   },
   "dependencies": {
     "ahooks": "^3.9.6",
+    "antd-mobile": "5.43.0",
     "axios": "^1.13.2",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.19",
@@ -88,5 +89,10 @@
   "engines": {
     "node": ">=22",
     "pnpm": ">=9"
+  },
+  "pnpm": {
+    "overrides": {
+      "@react-spring/web": "10.1.2"
+    }
   }
 }
